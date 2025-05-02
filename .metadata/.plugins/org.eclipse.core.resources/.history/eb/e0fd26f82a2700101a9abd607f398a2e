@@ -1,0 +1,44 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+long add_date = s.parse(request.getParameter("add_date")).getTime();
+System.out.println("add_date="+add_date);
+
+int add_int = Integer.parseInt(request.getParameter("add_int"));
+
+String add_str = request.getParameter("add_str");
+response.addDateHeader("myBirthday", add_date);
+response.addIntHeader("myNumber", add_int);
+response.addIntHeader("myNumber", 1004);
+response.addHeader("myName", add_str);
+response.setHeader("myName", "안중근");
+%> 
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>내장 객체 - Response</title>
+	</head>
+	<body>
+		<h2>1. 로그인 폼</h2>
+		<%
+		String loginErr = request.getParameter("loginErr");
+		if (loginErr != null) out.print("로그인 실패");
+		%>
+		<form action="./ResponseLogin.jsp" method="post">
+		아이디 : <input type="text" name="user_id" /> <br />
+		패스워드 : <input type="text" name="user_pwd" /> <br />
+		<input type="submit" value="로그인" />
+		</form>
+		
+		<h2>2. HTTP 응답 헤더 설정하기</h2>
+		<form action="./ResponseHeader.jsp" method="get">
+		날짜 형식 : <input type="text" name="add_date" value="2025-05-02" /> <br />
+		숫자 형식 : <input type="text" name="add_int" value="8282" /> <br />
+		문자 형식 : <input type="text" name="add_str" value="홍길동" /> <br />
+		<input type="submit" value="응답 헤더 설정 & 출력" />
+		</form>
+	</body>
+</html>
