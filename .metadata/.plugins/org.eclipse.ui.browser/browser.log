@@ -1,0 +1,4 @@
+
+5월 07, 2025 09:39:46.50 NEW SESSION
+5월 07, 2025 09:39:46.50 [19104:2268:0507/093946.502:ERROR:registration_request.cc(291)] Registration response error message: DEPRECATED_ENDPOINT
+5월 07, 2025 09:39:46.51 Created TensorFlow Lite XNNPACK delegate for CPU.
