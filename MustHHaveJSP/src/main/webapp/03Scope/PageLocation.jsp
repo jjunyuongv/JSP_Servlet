@@ -5,11 +5,15 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title>이동 후 page 영역의 속성값 읽기</title>
+	<title>Insert title here</title>
 	</head>
 	<body>
 		<h2>이동 후 page 영역의 속성값 읽기</h2>
 	    <%
+	    /*
+	    	pageContextMain.jsp에서 page영역에 저장된 속성값들은 이동된 현재페이지에서는
+	    	모든 데이터가 소멸되므로 아래에서는 null값이 출력된다.
+	    */
 	    Object pInteger = pageContext.getAttribute("pageInteger");
 	    Object pString = pageContext.getAttribute("pageString");
 	    Object pPerson = pageContext.getAttribute("pagePerson"); 
