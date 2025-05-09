@@ -3,8 +3,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF-8">
-	<title>액션 태그 - forward</title>
+		<meta charset="UTF-8">
+		<title>액션 태그 - forward</title>
 	</head>
 	<body>
 		<h2>포워드 결과</h2>
@@ -15,6 +15,6 @@
 			<li>
 				request 영역 : <%= request.getAttribute("rAttr") %>
 			</li>
-		</ul>		
+		</ul>
 	</body>
 </html>

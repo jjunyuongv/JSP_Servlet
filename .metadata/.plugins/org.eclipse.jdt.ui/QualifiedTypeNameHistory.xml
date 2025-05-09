@@ -14,8 +14,16 @@
     <fullyQualifiedTypeName name="javax.naming.InitialContext"/>
     <fullyQualifiedTypeName name="javax.naming.Context"/>
     <fullyQualifiedTypeName name="javax.sql.DataSource"/>
-    <fullyQualifiedTypeName name="common.JDBConnect"/>
     <fullyQualifiedTypeName name="membership.MemberDAO"/>
     <fullyQualifiedTypeName name="membership.MemberDTO"/>
     <fullyQualifiedTypeName name="jakarta.servlet.ServletContext"/>
+    <fullyQualifiedTypeName name="common.JDBConnect"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="java.util.Vector"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="model1.board.BoardDTO"/>
 </qualifiedTypeNameHistroy>

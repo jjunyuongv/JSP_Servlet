@@ -3,12 +3,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="UTF-8">
-	<title>OuterPage</title>
+		<meta charset="UTF-8">
+		<title>OuterPage</title>
 	</head>
 	<body>
 		<h2>외부 파일 2</h2>
-		<h2>외부 파일 1</h2>
 		<%
 		String newVar2 = "백제 온조왕";
 		%>
