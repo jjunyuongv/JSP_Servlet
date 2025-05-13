@@ -3,6 +3,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="mytag" uri="/WEB-INF/MyTagLib.tld" %>
 <%
+//정적메서드가 아닌 일반적인 메서드는 객체를 통해 호출해야 하므로
+//객체를 생성한 후 EL에서 접근할 수 있도록 영역에 저장한다.
 MyELClass myClass = new MyELClass();
 pageContext.setAttribute("myClass", myClass);
 %>

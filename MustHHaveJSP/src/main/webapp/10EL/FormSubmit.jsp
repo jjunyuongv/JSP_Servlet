@@ -19,6 +19,10 @@
 					<option value="high">고딩</option>
 					<option value="uni">대딩</option>
 				</select><br />
+			<!-- 
+	       		위쪽 부분은 단일값만 전송된다.
+	       		아래 부분은 2개 이상의 값이 전송된다.
+	       	 -->
 			관심 사항 : 
 				<input type="checkbox" name="inter" value="pol" />정치
 				<input type="checkbox" name="inter" value="eco" />경제
