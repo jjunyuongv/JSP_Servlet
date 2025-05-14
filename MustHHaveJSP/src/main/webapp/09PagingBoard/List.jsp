@@ -84,13 +84,23 @@ dao.close();
 	<title>회원제 게시판</title>
 	</head>
 	<body>
+		<!-- 공통 링크 -->
 		<jsp:include page="../Common/Link.jsp" />  
 
+
+	<!-- 앞에서 계산해둔 전체페이지수와 파라미터를 통해 얻어온 현재 
+		페이지번호를 출력한다. -->
     <h2>목록 보기(List) - 현재 페이지 : <%= pageNum %>(전체 : <%= totalPage %>)</h2>
+	
+	<!-- 검색 폼 -->
+	<!--  전송 은 get 방식이고， action 속성을 지정하지 않았으므로 
+   	submit하면 폼값이 현재 페이지로 전송된다. -->
 	<form method="get">
 		<table border="1" width="90%">
 			<tr>
-				<td align="center"><select name="searchField">
+				<td align="center">
+				<!-- 검색 항목(searchField)은 제목과 내용 중 선택 -->
+				<select name="searchField">
 						<option value="title">제목</option>
 						<option value="content">내용</option>
 				</select> <input type="text" name="searchWord" /> <input type="submit"
@@ -98,7 +108,9 @@ dao.close();
 			</tr>
 		</table>
 	</form>
+	<!-- 게시물 목록 테이블(표) -->
 	<table border="1" width="90%">
+		<!-- 각 컬럼의 이름 -->
 		<tr>
 			<th width="10%">번호</th>
 			<th width="50%">제목</th>
@@ -106,6 +118,7 @@ dao.close();
 			<th width="10%">조회수</th>
 			<th width="15%">작성일</th>
 		</tr>
+		 <!-- 목록의 내용 -->
 		<%
 		if (boardLists.isEmpty()) {
 		%>
@@ -115,19 +128,35 @@ dao.close();
 				<%
 		}
 		else {
-		    int virtualNum = 0;
+			// 출력할 게시물이 있는 경우에는 확장 for문으로 List컬랙션에
+			// 저장된 데이터의 갯수만큼 반복하여 출력한다.
+		    int virtualNum = 0; // 화면상에서의 게시물 번호
+		    
+			 // 페이지가 적용된 가상번호를 계산하기 위해 생성한 변수
 		    int countNum = 0;
+		    
 		    for (BoardDTO dto : boardLists)
 		    {
-		        //virtualNum = totalCount--;
+		    	// 현재 출력할 게시물의 갯수에 따라 출력번호는 달라지므로
+		    	// totalCount를 사용하여 가상번호를 부여한다.
+//	 	        virtualNum = totalCount--;    // 기존코드   
+		    	
+				// 현재 페이지번호를 적용한 가상번호 계산하기
+	    		// 전체 게시물수 - (((현재페이지-1)*한페이출력갯수) + countNum증가치)
 		        virtualNum = totalCount - (((pageNum - 1) * pageSize) + countNum++);
 		%>
 		<tr align="center">
+			<!-- 게시물의 가상 번호 -->
 			<td><%= virtualNum %></td>
-			<td align="left"><a href="View.jsp?num=<%= dto.getNum() %>"><%= dto.getTitle() %></a>
+			<td align="left">
+				<!--  게시물의 일련번호가 매개변수로 전달 -->
+				<a href="View.jsp?num=<%= dto.getNum() %>"><%= dto.getTitle() %></a>
 			</td>
+			<!-- 작성자 아이디 -->
 			<td align="center"><%= dto.getId() %></td>
+			<!-- 조회수 -->     
 			<td align="center"><%= dto.getVisitcount() %></td>
+			<!-- 작성일 --> 
 			<td align="center"><%= dto.getPostdate() %></td>
 		</tr>
 		<%
@@ -137,8 +166,22 @@ dao.close();
 	</table>
 
 	<table border="1" width="90%">
-		<tr align="center">
-			<td>
+		<tr align="right">
+			
+			<td align="center">
+				<!-- 
+        			totalCount : 전체 게시물의 갯수
+        			pageSize : 한페이지에 출력할 게시물의 갯수
+        			blockPage : 한블럭당 출력할 페이지번호의 갯수
+        			pageNum : 현재 페이지 번호
+        			request.getRequestURI() : request내장객체를 통해 현재페이지의
+        				HOST를 제외한 나머지 경로명을 얻어올 수 있다. 여기서 얻은
+        				경로명을 통해 "경록명.jsp?pageNum=페이지번호"와 같은 바로
+        				가기 링크를 생성한다.
+        		 -->
+        		<% 
+        		System.out.println("현재경로="+ request.getRequestURI());
+        		%> 
 				<%= BoardPage.pagingStr(totalCount, pageSize,
 						blockPage, pageNum, request.getRequestURI()) %>	
 			</td>
@@ -146,9 +189,6 @@ dao.close();
 				</button></td>
 		</tr>
 	</table>
-
-
-
 
 </body>
 </html>
