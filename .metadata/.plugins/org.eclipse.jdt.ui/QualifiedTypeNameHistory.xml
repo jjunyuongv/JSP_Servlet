@@ -52,12 +52,12 @@
     <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
-    <fullyQualifiedTypeName name="fileupload.FileUtil"/>
-    <fullyQualifiedTypeName name="utils.JSFunction"/>
     <fullyQualifiedTypeName name="jakarta.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="jakarta.servlet.annotation.MultipartConfig"/>
+    <fullyQualifiedTypeName name="jakarta.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="fileupload.FileUtil"/>
+    <fullyQualifiedTypeName name="utils.JSFunction"/>
     <fullyQualifiedTypeName name="model2.mvcboard.MVCBoardDAO"/>
     <fullyQualifiedTypeName name="model2.mvcboard.MVCBoardDTO"/>
 </qualifiedTypeNameHistroy>
