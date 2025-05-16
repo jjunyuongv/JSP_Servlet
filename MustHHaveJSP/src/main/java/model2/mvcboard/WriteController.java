@@ -9,9 +9,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import utils.JSFunction;
 
+/*
+글쓰기 페이지로 진입시에는 단순한 페이지 이동이므로 doGet()이 요청을
+처리한다. 즉 글쓰기 페이지만 보여주면 된다.
+내용을 모두 채운후 작성(submit)할때는 post방식이므로 doPost()가 
+요청을 받아 처리한다.
+*/
 public class WriteController extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+	
+	// 글쓰기 페이지로 진입할때의 요청을 처리한다.
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
