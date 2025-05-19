@@ -17,12 +17,15 @@ public class DownloadController extends HttpServlet
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
 	{
-		String ofile = req.getParameter("ofile");
-		String sfile = req.getParameter("sfile");
-		String idx = req.getParameter("idx");
+		// 매개변수를 파라미터로 받아 온다.
+		String ofile = req.getParameter("ofile"); // 원본 파일명
+		String sfile = req.getParameter("sfile"); // 저장된 파일명
+		String idx = req.getParameter("idx"); // 일련번호
 		
+		// 다운로드 메서드를 호출한다.
 		FileUtil.download(req, resp, "/Uploads", sfile, ofile);
 		
+		// 다운로드 횟수를 증가시킨다.
 		MVCBoardDAO dao = new MVCBoardDAO();
 		dao.downCountPlus(idx);
 		dao.close();
